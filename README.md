@@ -4,18 +4,28 @@
 
 Prerequisites:
 
-#. [yarn v1.22.22](https://classic.yarnpkg.com/) (NOTE: Yarn 1 Classic has been replaced by Yarn 2+)
-#. [Vue 2](https://v2.vuejs.org/) (NOTE: Vue 2 has reached EOL)
-#. [vue-cli](https://cli.vuejs.org/) (NOTE: Superceded by [vite](https://vite.dev/) from Vue 3)
+1. [Yarn v1.22.22](https://classic.yarnpkg.com/) (NOTE: Yarn 1 Classic has been replaced by Yarn 2+)
+2. [Vue 2](https://v2.vuejs.org/) (NOTE: Vue 2 has reached EOL)
+3. [vue-cli](https://cli.vuejs.org/) (NOTE: Superceded by [vite](https://vite.dev/) from Vue 3)
+
+### Install Yarn package manager
 
 ```console
 $ npm install -g yarn@1.22.22
 $ yarn --version
+```
 
+### Install Vue 2 and CLI
+
+```console
 $ npm install -g vue@^2
 $ npm install -g @vue/cli
 $ vue --version
+```
 
+### Create empty project using template
+
+```console
 $ vue create vue-app -p "Default (Vue 2)"
 $ cd vue-app
 ```
