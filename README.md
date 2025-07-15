@@ -1,3 +1,5 @@
+[![Vue build](https://github.com/gyk4j/vue-app/actions/workflows/build.yml/badge.svg)](https://github.com/gyk4j/vue-app/actions/workflows/build.yml)
+
 # vue-app
 
 ## System setup
