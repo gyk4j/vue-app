@@ -1,20 +1,19 @@
 <template>
   <div>
-  <HeaderNavBar></HeaderNavBar>
-  <main class="main">
-    <HeroSection></HeroSection>
-    <WhatWeDoSection></WhatWeDoSection>
-    <AboutSection></AboutSection>
-    <SkillsSection></SkillsSection>
-    <StatsSection></StatsSection>
-    <ServicesSection></ServicesSection>
-    <PortfolioSection></PortfolioSection>
-    <TestimonialsSection></TestimonialsSection>
-    <TeamSection></TeamSection>
-    <ContactSection></ContactSection>
-    
-  </main>
-  <FooterNavMenu></FooterNavMenu>
+    <HeaderNavBar></HeaderNavBar>
+    <main class="main">
+      <HeroSection></HeroSection>
+      <WhatWeDoSection></WhatWeDoSection>
+      <AboutSection></AboutSection>
+      <SkillsSection></SkillsSection>
+      <StatsSection></StatsSection>
+      <ServicesSection></ServicesSection>
+      <PortfolioSection></PortfolioSection>
+      <TestimonialsSection></TestimonialsSection>
+      <TeamSection></TeamSection>
+      <ContactSection></ContactSection>
+    </main>
+    <FooterNavMenu></FooterNavMenu>
   </div>
 </template>
 

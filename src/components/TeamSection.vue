@@ -14,7 +14,7 @@
             <div class="col-lg-3 col-md-6 mb-4">
               <div class="person">
                 <figure>
-                  <img src="assets/img/team/team-1.jpg" alt="Image" class="img-fluid">
+                  <img src="../assets/img/team/team-1.jpg" alt="Image" class="img-fluid">
                   <div class="social">
                     <a href="#"><span class="bi bi-facebook"></span></a>
                     <a href="#"><span class="bi bi-twitter-x"></span></a>
@@ -31,7 +31,7 @@
             <div class="col-lg-3 col-md-6 mb-4">
               <div class="person">
                 <figure>
-                  <img src="assets/img/team/team-2.jpg" alt="Image" class="img-fluid">
+                  <img src="../assets/img/team/team-2.jpg" alt="Image" class="img-fluid">
                   <div class="social">
                     <a href="#"><span class="bi bi-facebook"></span></a>
                     <a href="#"><span class="bi bi-twitter-x"></span></a>
@@ -48,7 +48,7 @@
             <div class="col-lg-3 col-md-6 mb-4">
               <div class="person">
                 <figure>
-                  <img src="assets/img/team/team-3.jpg" alt="Image" class="img-fluid">
+                  <img src="../assets/img/team/team-3.jpg" alt="Image" class="img-fluid">
                   <div class="social">
                     <a href="#"><span class="bi bi-facebook"></span></a>
                     <a href="#"><span class="bi bi-twitter-x"></span></a>
@@ -65,7 +65,7 @@
             <div class="col-lg-3 col-md-6 mb-4">
               <div class="person">
                 <figure>
-                  <img src="assets/img/team/team-4.jpg" alt="Image" class="img-fluid">
+                  <img src="../assets/img/team/team-4.jpg" alt="Image" class="img-fluid">
                   <div class="social">
                     <a href="#"><span class="bi bi-facebook"></span></a>
                     <a href="#"><span class="bi bi-twitter-x"></span></a>
