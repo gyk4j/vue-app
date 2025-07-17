@@ -20,8 +20,8 @@ $ yarn --version
 ### Install Vue 2 and CLI
 
 ```console
-$ npm install -g vue@^2
-$ npm install -g @vue/cli
+$ yarn global add vue@^2
+$ yarn global add @vue/cli
 $ vue --version
 ```
 
@@ -30,6 +30,7 @@ $ vue --version
 ```console
 $ vue create vue-app -p "Default (Vue 2)"
 $ cd vue-app
+$ yarn set version classic
 ```
 
 ## Project setup
