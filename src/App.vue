@@ -14,12 +14,13 @@
       <ContactSection></ContactSection>
     </main>
     <FooterNavMenu></FooterNavMenu>
+    <ScrollTopButton></ScrollTopButton>
+    <PreloaderOverlay></PreloaderOverlay>
   </div>
 </template>
 
 <script>
 import HeaderNavBar from './components/HeaderNavBar.vue';
-import FooterNavMenu from './components/FooterNavMenu.vue';
 
 import HeroSection from './components/HeroSection.vue';
 import WhatWeDoSection from './components/WhatWeDoSection.vue';
@@ -32,11 +33,14 @@ import TestimonialsSection from './components/TestimonialsSection.vue';
 import TeamSection from './components/TeamSection.vue';
 import ContactSection from './components/ContactSection.vue';
 
+import FooterNavMenu from './components/FooterNavMenu.vue';
+import ScrollTopButton from './components/ScrollTopButton.vue';
+import PreloaderOverlay from './components/PreloaderOverlay.vue';
+
 export default {
   name: 'App',
   components: {
     HeaderNavBar,
-    FooterNavMenu,
     HeroSection,
     WhatWeDoSection,
     AboutSection,
@@ -46,7 +50,10 @@ export default {
     PortfolioSection,
     TestimonialsSection,
     TeamSection,
-    ContactSection
+    ContactSection,
+    FooterNavMenu,
+    ScrollTopButton,
+    PreloaderOverlay
   }
 }
 </script>
