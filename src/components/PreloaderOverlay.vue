@@ -5,6 +5,17 @@
 
 <script>
 export default {
-  name: 'PreloaderOverlay'
+  name: 'PreloaderOverlay',
+  mounted() {
+    /**
+     * Preloader
+     */
+     this.preloader = document.querySelector('#preloader');
+    if (this.preloader) {
+      window.addEventListener('load', () => {
+        this.preloader.remove();
+      });
+    }
+  }
 }
 </script>

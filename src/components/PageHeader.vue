@@ -53,6 +53,65 @@ export default {
   name: 'PageHeader',
   components: {
     
+  },
+  mounted() {
+    /**
+     * Mobile nav toggle
+     */
+     this.mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+    this.mobileNavToggleBtn.addEventListener('click', this.mobileNavToogle);
+
+    /**
+     * Hide mobile nav on same-page/hash links
+     */
+    document.querySelectorAll('#navmenu a').forEach(navmenu => {
+      navmenu.addEventListener('click', () => {
+        if (document.querySelector('.mobile-nav-active')) {
+          this.mobileNavToogle();
+        }
+      });
+
+    });
+
+    /**
+     * Toggle mobile nav dropdowns
+     */
+    document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
+      navmenu.addEventListener('click', function(e) {
+        e.preventDefault();
+        this.parentNode.classList.toggle('active');
+        this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
+        e.stopImmediatePropagation();
+      });
+    });
+
+    /**
+     * Navmenu Scrollspy
+     */
+     this.navmenulinks = document.querySelectorAll('.navmenu a');
+    window.addEventListener('load', this.navmenuScrollspy);
+    document.addEventListener('scroll', this.navmenuScrollspy);
+  },
+  methods: {
+    mobileNavToogle() {
+      document.querySelector('body').classList.toggle('mobile-nav-active');
+      this.mobileNavToggleBtn.classList.toggle('bi-list');
+      this.mobileNavToggleBtn.classList.toggle('bi-x');
+    },
+    navmenuScrollspy() {
+      this.navmenulinks.forEach(navmenulink => {
+        if (!navmenulink.hash) return;
+        let section = document.querySelector(navmenulink.hash);
+        if (!section) return;
+        let position = window.scrollY + 200;
+        if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
+          document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
+          navmenulink.classList.add('active');
+        } else {
+          navmenulink.classList.remove('active');
+        }
+      })
+    }
   }
 }
 </script>
