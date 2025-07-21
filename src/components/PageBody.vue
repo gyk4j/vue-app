@@ -43,7 +43,7 @@ export default {
     /**
      * Animation on scroll function and init
      */
-     window.addEventListener('load', this.aosInit);
+    this.aosInit();
   },
   methods: {
     aosInit() {

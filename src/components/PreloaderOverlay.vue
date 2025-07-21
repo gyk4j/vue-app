@@ -10,11 +10,9 @@ export default {
     /**
      * Preloader
      */
-     this.preloader = document.querySelector('#preloader');
+    this.preloader = document.querySelector('#preloader');
     if (this.preloader) {
-      window.addEventListener('load', () => {
-        this.preloader.remove();
-      });
+      this.preloader.remove();
     }
   }
 }

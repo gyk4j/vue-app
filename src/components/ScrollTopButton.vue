@@ -20,7 +20,7 @@ export default {
       });
     });
 
-    window.addEventListener('load', this.toggleScrollTop);
+    this.toggleScrollTop();
     document.addEventListener('scroll', this.toggleScrollTop);
   },
   methods: {
