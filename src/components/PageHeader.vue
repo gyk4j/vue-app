@@ -88,8 +88,8 @@ export default {
     /**
      * Navmenu Scrollspy
      */
-     this.navmenulinks = document.querySelectorAll('.navmenu a');
-    window.addEventListener('load', this.navmenuScrollspy);
+    this.navmenulinks = document.querySelectorAll('.navmenu a');
+    this.navmenuScrollspy();
     document.addEventListener('scroll', this.navmenuScrollspy);
   },
   methods: {
