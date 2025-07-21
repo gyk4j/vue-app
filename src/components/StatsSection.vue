@@ -46,6 +46,13 @@ export default {
   name: 'StatsSection',
   components: {
     
+  },
+  mounted() {
+    /**
+     * Initiate Pure Counter
+     */
+    // eslint-disable-next-line
+    new PureCounter();
   }
 }
 </script>

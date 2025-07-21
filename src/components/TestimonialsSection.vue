@@ -132,6 +132,29 @@ export default {
   name: 'TestimonialsSection',
   components: {
     
+  },
+  mounted() {
+    /**
+     * Init swiper sliders
+     */
+     window.addEventListener("load", this.initSwiper);
+  },
+  methods: {
+    initSwiper() {
+      document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
+        let config = JSON.parse(
+          swiperElement.querySelector(".swiper-config").innerHTML.trim()
+        );
+
+        if (swiperElement.classList.contains("swiper-tab")) {
+          // eslint-disable-next-line
+          initSwiperWithCustomPagination(swiperElement, config);
+        } else {
+          // eslint-disable-next-line
+          new Swiper(swiperElement, config);
+        }
+      });
+    },
   }
 }
 </script>

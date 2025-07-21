@@ -5,6 +5,30 @@
 
 <script>
 export default {
-  name: 'ScrollTopButton'
+  name: 'ScrollTopButton',
+  mounted() {
+    /**
+     * Scroll top button
+     */
+    this.scrollTop = document.querySelector('.scroll-top');
+
+    this.scrollTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    window.addEventListener('load', this.toggleScrollTop);
+    document.addEventListener('scroll', this.toggleScrollTop);
+  },
+  methods: {
+    toggleScrollTop() {
+      if (this.scrollTop) {
+        window.scrollY > 100 ? this.scrollTop.classList.add('active') : this.scrollTop.classList.remove('active');
+      }
+    },
+  }
 }
 </script>

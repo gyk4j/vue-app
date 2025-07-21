@@ -68,6 +68,26 @@ export default {
   name: 'SkillsSection',
   components: {
     
+  },
+  mounted() {
+    /**
+     * Animate the skills items on reveal
+     */
+    let skillsAnimation = document.querySelectorAll('.skills-animation');
+    skillsAnimation.forEach((item) => {
+      // eslint-disable-next-line
+      new Waypoint({
+        element: item,
+        offset: '80%',
+        // eslint-disable-next-line
+        handler: function(direction) {
+          let progress = item.querySelectorAll('.progress .progress-bar');
+          progress.forEach(el => {
+            el.style.width = el.getAttribute('aria-valuenow') + '%';
+          });
+        }
+      });
+    });
   }
 }
 </script>

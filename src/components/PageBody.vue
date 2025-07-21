@@ -38,6 +38,23 @@ export default {
     TestimonialsSection,
     TeamSection,
     ContactSection,
+  },
+  mounted() {
+    /**
+     * Animation on scroll function and init
+     */
+     window.addEventListener('load', this.aosInit);
+  },
+  methods: {
+    aosInit() {
+      // eslint-disable-next-line
+      AOS.init({
+        duration: 600,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+      });
+    },
   }
 }
 
