@@ -50,7 +50,7 @@
 
 <script>
 export default {
-  name: 'HeaderNavBar',
+  name: 'PageHeader',
   components: {
     
   }
