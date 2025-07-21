@@ -66,7 +66,7 @@
 
 <script>
 export default {
-  name: 'FooterNavMenu',
+  name: 'PageFooter',
   components: {
     
   }
