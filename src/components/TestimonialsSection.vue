@@ -137,7 +137,7 @@ export default {
     /**
      * Init swiper sliders
      */
-     window.addEventListener("load", this.initSwiper);
+    this.initSwiper();
   },
   methods: {
     initSwiper() {
