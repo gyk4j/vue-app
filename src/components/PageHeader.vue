@@ -10,29 +10,29 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li><PageHeaderNavMenuLink href="#hero" active text="Home"></PageHeaderNavMenuLink></li>
+          <li><PageHeaderNavMenuLink href="#about" text="About"></PageHeaderNavMenuLink></li>
+          <li><PageHeaderNavMenuLink href="#services" text="Services"></PageHeaderNavMenuLink></li>
+          <li><PageHeaderNavMenuLink href="#portfolio" text="Portfolio"></PageHeaderNavMenuLink></li>
+          <li><PageHeaderNavMenuLink href="#team" text="Team"></PageHeaderNavMenuLink></li>
+          <li class="dropdown"><PageHeaderNavMenuLink dropdown text="Dropdown"></PageHeaderNavMenuLink>
             <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <li><PageHeaderNavMenuLink text="Dropdown 1"></PageHeaderNavMenuLink></li>
+              <li class="dropdown"><PageHeaderNavMenuLink dropdown text="Deep Dropdown"></PageHeaderNavMenuLink>
                 <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
+                  <li><PageHeaderNavMenuLink text="Deep Dropdown 1"></PageHeaderNavMenuLink></li>
+                  <li><PageHeaderNavMenuLink text="Deep Dropdown 2"></PageHeaderNavMenuLink></li>
+                  <li><PageHeaderNavMenuLink text="Deep Dropdown 3"></PageHeaderNavMenuLink></li>
+                  <li><PageHeaderNavMenuLink text="Deep Dropdown 4"></PageHeaderNavMenuLink></li>
+                  <li><PageHeaderNavMenuLink text="Deep Dropdown 5"></PageHeaderNavMenuLink></li>
                 </ul>
               </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
+              <li><PageHeaderNavMenuLink text="Dropdown 2"></PageHeaderNavMenuLink></li>
+              <li><PageHeaderNavMenuLink text="Dropdown 3"></PageHeaderNavMenuLink></li>
+              <li><PageHeaderNavMenuLink text="Dropdown 4"></PageHeaderNavMenuLink></li>
             </ul>
           </li>
-          <li><a href="#contact">Contact</a></li>
+          <li><PageHeaderNavMenuLink href="#contact" text="Contact"></PageHeaderNavMenuLink></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -49,10 +49,12 @@
 </template>
 
 <script>
+import PageHeaderNavMenuLink from './PageHeaderNavMenuLink.vue';
+
 export default {
   name: 'PageHeader',
   components: {
-    
+    PageHeaderNavMenuLink
   },
   mounted() {
     /**
@@ -84,13 +86,6 @@ export default {
         e.stopImmediatePropagation();
       });
     });
-
-    /**
-     * Navmenu Scrollspy
-     */
-    this.navmenulinks = document.querySelectorAll('.navmenu a');
-    this.navmenuScrollspy();
-    document.addEventListener('scroll', this.navmenuScrollspy);
   },
   methods: {
     mobileNavToogle() {
@@ -98,20 +93,6 @@ export default {
       this.mobileNavToggleBtn.classList.toggle('bi-list');
       this.mobileNavToggleBtn.classList.toggle('bi-x');
     },
-    navmenuScrollspy() {
-      this.navmenulinks.forEach(navmenulink => {
-        if (!navmenulink.hash) return;
-        let section = document.querySelector(navmenulink.hash);
-        if (!section) return;
-        let position = window.scrollY + 200;
-        if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-          document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
-          navmenulink.classList.add('active');
-        } else {
-          navmenulink.classList.remove('active');
-        }
-      })
-    }
   }
 }
 </script>

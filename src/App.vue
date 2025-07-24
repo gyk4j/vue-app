@@ -1,5 +1,5 @@
 <template>
-  <div v-scroll="toggleScrolled">
+  <div v-scroll="onScroll">
     <PageHeader></PageHeader>
     <PageBody></PageBody>
     <PageFooter></PageFooter>
@@ -55,11 +55,14 @@ export default {
     }
   },
   methods: {
-    toggleScrolled() {
+    onScroll() {
       // Update vertical position.
       // Replaces toggleScrollTop() in ScrollTopButton.vue using bound data.
       this.scrollY = window.scrollY;
 
+      this.toggleScrolled()
+    },
+    toggleScrolled() {
       const selectBody = document.querySelector('body');
       const selectHeader = document.querySelector('#header');
       if (!selectHeader.classList.contains('scroll-up-sticky') && !selectHeader.classList.contains('sticky-top') && !selectHeader.classList.contains('fixed-top')) return;
