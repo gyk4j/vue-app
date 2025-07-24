@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div v-scroll="toggleScrolled">
     <PageHeader></PageHeader>
     <PageBody></PageBody>
     <PageFooter></PageFooter>
-    <ScrollTopButton></ScrollTopButton>
+    <ScrollTopButton v-bind:scrollY="scrollY"></ScrollTopButton>
     <PreloaderOverlay></PreloaderOverlay>
   </div>
 </template>
@@ -36,7 +36,6 @@ export default {
     /**
      * Apply .scrolled class to the body as the page is scrolled down
      */
-    document.addEventListener('scroll', this.toggleScrolled);
     this.toggleScrolled();
 
     /**
@@ -57,11 +56,21 @@ export default {
   },
   methods: {
     toggleScrolled() {
+      // Update vertical position.
+      // Replaces toggleScrollTop() in ScrollTopButton.vue using bound data.
+      this.scrollY = window.scrollY;
+
       const selectBody = document.querySelector('body');
       const selectHeader = document.querySelector('#header');
       if (!selectHeader.classList.contains('scroll-up-sticky') && !selectHeader.classList.contains('sticky-top') && !selectHeader.classList.contains('fixed-top')) return;
-      window.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
+      this.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
     },
+  },
+  data() {
+    return {
+      // Replaces toggleScrollTop() in ScrollTopButton.vue using bound data.
+      scrollY: window.scrollY
+    }
   }
 }
 </script>
