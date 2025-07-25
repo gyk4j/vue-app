@@ -1,6 +1,24 @@
 <template>
-  <a v-if="!dropdown" v-bind:href="href" v-bind:class="{ 'active': i_active }">{{ text }}</a>
-  <a v-else href="#" v-bind:class="{ active: i_active }"><span v-bind:class="{ 'dropdown-active': i_dropdownActive }">{{ text }}</span> <i class="bi bi-chevron-down toggle-dropdown" v-on:click="toggleDropDown"></i></a>
+  <a v-if="!dropdown" 
+    v-bind:href="href" 
+    v-bind:class="{ 'active': i_active }"
+    v-on:click="mobileNavToogle"
+  >
+    {{ text }}
+  </a>
+  <a v-else 
+    href="#" 
+    v-bind:class="{ active: i_active }"
+    v-on:click="mobileNavToogle"
+  >
+    <span 
+      v-bind:class="{ 'dropdown-active': i_dropdownActive }">
+      {{ text }}
+    </span>
+    <i class="bi bi-chevron-down toggle-dropdown" 
+      v-on:click="toggleDropDown">
+    </i>
+  </a>
 </template>
 
 <script>
@@ -27,6 +45,10 @@ export default {
       required: false,
       default: ''
     },
+    mobileNavToogle: {
+      type: Function,
+      required: true
+    }
   },
   data() {
     return {
@@ -47,6 +69,18 @@ export default {
     //   navmenu.addEventListener('click', function(e) {
     //     this.toggleDropdown(e)
     //   });
+    // });
+
+    /**
+     * Hide mobile nav on same-page/hash links
+     */
+    // document.querySelectorAll('#navmenu a').forEach(navmenu => {
+    //   navmenu.addEventListener('click', () => {
+    //     if (document.querySelector('.mobile-nav-active')) {
+    //       this.mobileNavToogle();
+    //     }
+    //   });
+
     // });
 
     /**

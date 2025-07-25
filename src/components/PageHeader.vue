@@ -10,31 +10,34 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><PageHeaderNavMenuLink href="#hero" active text="Home"></PageHeaderNavMenuLink></li>
-          <li><PageHeaderNavMenuLink href="#about" text="About"></PageHeaderNavMenuLink></li>
-          <li><PageHeaderNavMenuLink href="#services" text="Services"></PageHeaderNavMenuLink></li>
-          <li><PageHeaderNavMenuLink href="#portfolio" text="Portfolio"></PageHeaderNavMenuLink></li>
-          <li><PageHeaderNavMenuLink href="#team" text="Team"></PageHeaderNavMenuLink></li>
-          <li class="dropdown"><PageHeaderNavMenuLink dropdown text="Dropdown"></PageHeaderNavMenuLink>
+          <li><PageHeaderNavMenuLink href="#hero" active text="Home" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+          <li><PageHeaderNavMenuLink href="#about" text="About" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+          <li><PageHeaderNavMenuLink href="#services" text="Services" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+          <li><PageHeaderNavMenuLink href="#portfolio" text="Portfolio" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+          <li><PageHeaderNavMenuLink href="#team" text="Team" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+          <li class="dropdown"><PageHeaderNavMenuLink dropdown text="Dropdown" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink>
             <ul>
-              <li><PageHeaderNavMenuLink text="Dropdown 1"></PageHeaderNavMenuLink></li>
-              <li class="dropdown"><PageHeaderNavMenuLink dropdown text="Deep Dropdown"></PageHeaderNavMenuLink>
+              <li><PageHeaderNavMenuLink text="Dropdown 1" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+              <li class="dropdown"><PageHeaderNavMenuLink dropdown text="Deep Dropdown" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink>
                 <ul>
-                  <li><PageHeaderNavMenuLink text="Deep Dropdown 1"></PageHeaderNavMenuLink></li>
-                  <li><PageHeaderNavMenuLink text="Deep Dropdown 2"></PageHeaderNavMenuLink></li>
-                  <li><PageHeaderNavMenuLink text="Deep Dropdown 3"></PageHeaderNavMenuLink></li>
-                  <li><PageHeaderNavMenuLink text="Deep Dropdown 4"></PageHeaderNavMenuLink></li>
-                  <li><PageHeaderNavMenuLink text="Deep Dropdown 5"></PageHeaderNavMenuLink></li>
+                  <li><PageHeaderNavMenuLink text="Deep Dropdown 1" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+                  <li><PageHeaderNavMenuLink text="Deep Dropdown 2" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+                  <li><PageHeaderNavMenuLink text="Deep Dropdown 3" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+                  <li><PageHeaderNavMenuLink text="Deep Dropdown 4" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+                  <li><PageHeaderNavMenuLink text="Deep Dropdown 5" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
                 </ul>
               </li>
-              <li><PageHeaderNavMenuLink text="Dropdown 2"></PageHeaderNavMenuLink></li>
-              <li><PageHeaderNavMenuLink text="Dropdown 3"></PageHeaderNavMenuLink></li>
-              <li><PageHeaderNavMenuLink text="Dropdown 4"></PageHeaderNavMenuLink></li>
+              <li><PageHeaderNavMenuLink text="Dropdown 2" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+              <li><PageHeaderNavMenuLink text="Dropdown 3" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+              <li><PageHeaderNavMenuLink text="Dropdown 4" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
             </ul>
           </li>
-          <li><PageHeaderNavMenuLink href="#contact" text="Contact"></PageHeaderNavMenuLink></li>
+          <li><PageHeaderNavMenuLink href="#contact" text="Contact" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        <i class="mobile-nav-toggle d-xl-none bi"
+          v-bind:class="{ 'bi-list': !i_mobileNavToggleBtn, 'bi-x': i_mobileNavToggleBtn }"
+          v-bind:click="mobileNavToogle">
+        </i>
       </nav>
 
       <div class="header-social-links">
@@ -56,30 +59,20 @@ export default {
   components: {
     PageHeaderNavMenuLink
   },
+  data() {
+    return {
+      i_mobileNavToggleBtn: false
+    }
+  },
   mounted() {
     /**
      * Mobile nav toggle
      */
-     this.mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
-    this.mobileNavToggleBtn.addEventListener('click', this.mobileNavToogle);
-
-    /**
-     * Hide mobile nav on same-page/hash links
-     */
-    document.querySelectorAll('#navmenu a').forEach(navmenu => {
-      navmenu.addEventListener('click', () => {
-        if (document.querySelector('.mobile-nav-active')) {
-          this.mobileNavToogle();
-        }
-      });
-
-    });
   },
   methods: {
     mobileNavToogle() {
       document.querySelector('body').classList.toggle('mobile-nav-active');
-      this.mobileNavToggleBtn.classList.toggle('bi-list');
-      this.mobileNavToggleBtn.classList.toggle('bi-x');
+      this.i_mobileNavToggleBtn = !this.i_mobileNavToggleBtn;
     },
   }
 }
