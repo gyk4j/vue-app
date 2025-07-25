@@ -1,14 +1,14 @@
 <template>
   <a v-if="!dropdown" 
     v-bind:href="href" 
-    v-bind:class="{ 'active': i_active }"
+    v-bind:class="navmenuScrollspy"
     v-on:click="toggleMobileNav"
   >
     {{ text }}
   </a>
   <a v-else 
     href="#" 
-    v-bind:class="{ active: i_active }"
+    v-bind:class="navmenuScrollspy"
     v-on:click="toggleMobileNav"
   >
     <span 
@@ -48,17 +48,43 @@ export default {
     mobileNavToogle: {
       type: Function,
       required: true
+    },
+    scrollY: {
+      type: Number,
+      required: true,
+      default: 0
     }
   },
   data() {
     return {
-      i_active: this.active,
+      // i_active: this.active,
       i_dropdownActive: false
     }
   },
   computed: {
     hash: function() {
       return this.href.trim().startsWith('#')? this.href.trim(): ''
+    },
+    navmenuScrollspy: function() {      
+      let position = this.scrollY + 200;
+      let i_active = false
+      // if (!this.hash) {
+      //   i_active = false
+      // }
+      let section = document.querySelector((!this.hash)? '#hero' : this.hash);
+      if (!section) {
+        i_active = false
+      } else {
+        if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
+          i_active = true
+        } else {
+          i_active = false
+        }
+      }
+
+      return {
+        'active': i_active
+      }
     },
   },
   mounted() {
@@ -91,20 +117,9 @@ export default {
     // document.addEventListener('scroll', this.navmenuScrollspy);
   },
   methods: {
-    navmenuScrollspy() {
-      if (!this.hash) return;
-      let section = document.querySelector(this.hash);
-      if (!section) return;
-      let position = window.scrollY + 200;
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        this.i_active = true
-      } else {
-        this.i_active = false
-      }
-    },
     toggleDropDown(/* e */) {
       // e.preventDefault();
-      this.i_active = !this.i_active;
+      // this.i_active = !this.i_active;
       this.i_dropdownActive = !this.i_dropdownActive;
       // e.stopImmediatePropagation();
     },

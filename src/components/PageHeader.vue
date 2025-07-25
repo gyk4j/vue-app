@@ -10,11 +10,14 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><PageHeaderNavMenuLink href="#hero" active text="Home" v-bind:mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
-          <li><PageHeaderNavMenuLink href="#about" text="About" v-bind:mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
-          <li><PageHeaderNavMenuLink href="#services" text="Services" v-bind:mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
-          <li><PageHeaderNavMenuLink href="#portfolio" text="Portfolio" v-bind:mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
-          <li><PageHeaderNavMenuLink href="#team" text="Team" v-bind:mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+          <li><PageHeaderNavMenuLink href="#hero" active text="Home" v-bind:mobileNavToogle="mobileNavToogle" v-bind:scrollY="scrollY"></PageHeaderNavMenuLink></li>
+          <li><PageHeaderNavMenuLink href="#what-we-do" text="What We Do" v-bind:mobileNavToogle="mobileNavToogle" v-bind:scrollY="scrollY"></PageHeaderNavMenuLink></li>
+          <li><PageHeaderNavMenuLink href="#about" text="About" v-bind:mobileNavToogle="mobileNavToogle" v-bind:scrollY="scrollY"></PageHeaderNavMenuLink></li>
+          <li><PageHeaderNavMenuLink href="#services" text="Services" v-bind:mobileNavToogle="mobileNavToogle" v-bind:scrollY="scrollY"></PageHeaderNavMenuLink></li>
+          <li><PageHeaderNavMenuLink href="#portfolio" text="Portfolio" v-bind:mobileNavToogle="mobileNavToogle" v-bind:scrollY="scrollY"></PageHeaderNavMenuLink></li>
+          <li><PageHeaderNavMenuLink href="#testimonials" text="Testimonials" v-bind:mobileNavToogle="mobileNavToogle" v-bind:scrollY="scrollY"></PageHeaderNavMenuLink></li>
+          <li><PageHeaderNavMenuLink href="#team" text="Team" v-bind:mobileNavToogle="mobileNavToogle" v-bind:scrollY="scrollY"></PageHeaderNavMenuLink></li>
+          <!--
           <li class="dropdown"><PageHeaderNavMenuLink dropdown text="Dropdown" v-bind:mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink>
             <ul>
               <li><PageHeaderNavMenuLink text="Dropdown 1" v-bind:mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
@@ -32,7 +35,8 @@
               <li><PageHeaderNavMenuLink text="Dropdown 4" v-bind:mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
             </ul>
           </li>
-          <li><PageHeaderNavMenuLink href="#contact" text="Contact" v-bind:mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+          -->
+          <li><PageHeaderNavMenuLink href="#contact" text="Contact" v-bind:mobileNavToogle="mobileNavToogle" v-bind:scrollY="scrollY"></PageHeaderNavMenuLink></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi"
           v-bind:class="{ 'bi-list': !i_mobileNavToggleBtn, 'bi-x': i_mobileNavToggleBtn }"
@@ -60,9 +64,22 @@ export default {
   components: {
     PageHeaderNavMenuLink
   },
+  props: {
+    scrollY: {
+      type: Number,
+      required: true,
+      default: 0
+    }
+  },
   data() {
     return {
       i_mobileNavToggleBtn: false
+    }
+  },
+  computed: {
+    navmenuScrollspy: function() {
+      console.log("navmenuScrollspy: " + this.scrollY)
+      return true
     }
   },
   mounted() {

@@ -1,6 +1,6 @@
 <template>
   <div v-scroll="onScroll">
-    <PageHeader></PageHeader>
+    <PageHeader v-bind:scrollY="scrollY"></PageHeader>
     <PageBody></PageBody>
     <PageFooter></PageFooter>
     <ScrollTopButton v-bind:scrollY="scrollY"></ScrollTopButton>
