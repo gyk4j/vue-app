@@ -2,14 +2,14 @@
   <a v-if="!dropdown" 
     v-bind:href="href" 
     v-bind:class="{ 'active': i_active }"
-    v-on:click="mobileNavToogle"
+    v-on:click="toggleMobileNav"
   >
     {{ text }}
   </a>
   <a v-else 
     href="#" 
     v-bind:class="{ active: i_active }"
-    v-on:click="mobileNavToogle"
+    v-on:click="toggleMobileNav"
   >
     <span 
       v-bind:class="{ 'dropdown-active': i_dropdownActive }">
@@ -107,6 +107,13 @@ export default {
       this.i_active = !this.i_active;
       this.i_dropdownActive = !this.i_dropdownActive;
       // e.stopImmediatePropagation();
+    },
+    toggleMobileNav() {
+      if (this.mobileNavToogle){
+        this.mobileNavToogle()
+      } else {
+        console.log("Click ignored.")
+      }
     }
   }
 }

@@ -10,33 +10,34 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><PageHeaderNavMenuLink href="#hero" active text="Home" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
-          <li><PageHeaderNavMenuLink href="#about" text="About" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
-          <li><PageHeaderNavMenuLink href="#services" text="Services" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
-          <li><PageHeaderNavMenuLink href="#portfolio" text="Portfolio" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
-          <li><PageHeaderNavMenuLink href="#team" text="Team" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
-          <li class="dropdown"><PageHeaderNavMenuLink dropdown text="Dropdown" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink>
+          <li><PageHeaderNavMenuLink href="#hero" active text="Home" v-bind:mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+          <li><PageHeaderNavMenuLink href="#about" text="About" v-bind:mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+          <li><PageHeaderNavMenuLink href="#services" text="Services" v-bind:mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+          <li><PageHeaderNavMenuLink href="#portfolio" text="Portfolio" v-bind:mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+          <li><PageHeaderNavMenuLink href="#team" text="Team" v-bind:mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+          <li class="dropdown"><PageHeaderNavMenuLink dropdown text="Dropdown" v-bind:mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink>
             <ul>
-              <li><PageHeaderNavMenuLink text="Dropdown 1" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
-              <li class="dropdown"><PageHeaderNavMenuLink dropdown text="Deep Dropdown" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink>
+              <li><PageHeaderNavMenuLink text="Dropdown 1" v-bind:mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+              <li class="dropdown"><PageHeaderNavMenuLink dropdown text="Deep Dropdown" v-bind:mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink>
                 <ul>
-                  <li><PageHeaderNavMenuLink text="Deep Dropdown 1" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
-                  <li><PageHeaderNavMenuLink text="Deep Dropdown 2" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
-                  <li><PageHeaderNavMenuLink text="Deep Dropdown 3" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
-                  <li><PageHeaderNavMenuLink text="Deep Dropdown 4" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
-                  <li><PageHeaderNavMenuLink text="Deep Dropdown 5" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+                  <li><PageHeaderNavMenuLink text="Deep Dropdown 1" v-bind:mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+                  <li><PageHeaderNavMenuLink text="Deep Dropdown 2" v-bind:mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+                  <li><PageHeaderNavMenuLink text="Deep Dropdown 3" v-bind:mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+                  <li><PageHeaderNavMenuLink text="Deep Dropdown 4" v-bind:mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+                  <li><PageHeaderNavMenuLink text="Deep Dropdown 5" v-bind:mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
                 </ul>
               </li>
-              <li><PageHeaderNavMenuLink text="Dropdown 2" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
-              <li><PageHeaderNavMenuLink text="Dropdown 3" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
-              <li><PageHeaderNavMenuLink text="Dropdown 4" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+              <li><PageHeaderNavMenuLink text="Dropdown 2" v-bind:mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+              <li><PageHeaderNavMenuLink text="Dropdown 3" v-bind:mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+              <li><PageHeaderNavMenuLink text="Dropdown 4" v-bind:mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
             </ul>
           </li>
-          <li><PageHeaderNavMenuLink href="#contact" text="Contact" mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
+          <li><PageHeaderNavMenuLink href="#contact" text="Contact" v-bind:mobileNavToogle="mobileNavToogle"></PageHeaderNavMenuLink></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi"
           v-bind:class="{ 'bi-list': !i_mobileNavToggleBtn, 'bi-x': i_mobileNavToggleBtn }"
-          v-bind:click="mobileNavToogle">
+          v-on:click="mobileNavToogle"
+        >
         </i>
       </nav>
 
