@@ -7,9 +7,9 @@
       <div class="container text-center" data-aos="fade-up" data-aos-delay="100">
         <div class="row justify-content-center">
           <div class="col-lg-8">
-            <h2>Welcome to Our Lumia</h2>
-            <p>We are team of talented designers making websites with Bootstrap</p>
-            <a href="#about" class="btn-get-started">Get Started</a>
+            <h2>{{ value.title }}</h2>
+            <p>{{ value.subtitle }}</p>
+            <a v-bind:href="value.actionUrl" class="btn-get-started">{{ value.actionText }}</a>
           </div>
         </div>
       </div>
@@ -20,8 +20,11 @@
 <script>
 export default {
   name: 'HeroSection',
-  components: {
-    
+  props: {
+    value: {
+      type: String,
+      required: true, 
+    }
   }
 }
 </script>

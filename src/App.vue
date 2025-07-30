@@ -1,7 +1,8 @@
 <template>
   <div v-scroll="onScroll">
     <PageHeader v-bind:scrollY="scrollY"></PageHeader>
-    <PageBody></PageBody>
+    <PageBody
+      v-bind:hero="hero"></PageBody>
     <PageFooter></PageFooter>
     <ScrollTopButton v-bind:scrollY="scrollY"></ScrollTopButton>
     <PreloaderOverlay></PreloaderOverlay>
@@ -24,6 +25,18 @@ export default {
     ScrollTopButton,
     PreloaderOverlay
   },
+  data() {
+    return {
+      // Replaces toggleScrollTop() in ScrollTopButton.vue using bound data.
+      scrollY: window.scrollY,
+      hero: {
+        title: 'Welcome to Our Lumia',
+        subtitle: 'We are team of talented designers making websites with Bootstrap',
+        actionText: 'Get Started',
+        actionUrl: '#about'
+      }
+    }
+  },
   mounted() {
     /**
      * Template Name: Lumia
@@ -36,7 +49,7 @@ export default {
     /**
      * Apply .scrolled class to the body as the page is scrolled down
      */
-    this.toggleScrolled();
+    this.onScroll();
 
     /**
      * Correct scrolling position upon page load for URLs containing hash links.
@@ -69,11 +82,5 @@ export default {
       this.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
     },
   },
-  data() {
-    return {
-      // Replaces toggleScrollTop() in ScrollTopButton.vue using bound data.
-      scrollY: window.scrollY
-    }
-  }
 }
 </script>
