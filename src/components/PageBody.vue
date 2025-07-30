@@ -1,7 +1,7 @@
 <template>
   <main class="main">
     <HeroSection v-bind:value="hero"></HeroSection>
-    <WhatWeDoSection></WhatWeDoSection>
+    <WhatWeDoSection v-bind:value="whatWeDo"></WhatWeDoSection>
     <AboutSection></AboutSection>
     <SkillsSection></SkillsSection>
     <StatsSection></StatsSection>
@@ -40,7 +40,8 @@ export default {
     ContactSection,
   },
   props: {
-    hero: Object
+    hero: Object,
+    whatWeDo: Object,
   },
   mounted() {
     /**

@@ -2,7 +2,9 @@
   <div v-scroll="onScroll">
     <PageHeader v-bind:scrollY="scrollY"></PageHeader>
     <PageBody
-      v-bind:hero="hero"></PageBody>
+      v-bind:hero="hero"
+      v-bind:whatWeDo="whatWeDo">
+    </PageBody>
     <PageFooter></PageFooter>
     <ScrollTopButton v-bind:scrollY="scrollY"></ScrollTopButton>
     <PreloaderOverlay></PreloaderOverlay>
@@ -34,6 +36,37 @@ export default {
         subtitle: 'We are team of talented designers making websites with Bootstrap',
         actionText: 'Get Started',
         actionUrl: '#about'
+      },
+      whatWeDo: {
+        title: 'What We Do',
+        subtitle: 'Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit',
+        whyTitle: 'Why Choose Our Products?',
+        whyBody: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.',
+        actionText: 'Learn More',
+        actionUrl: '#',
+        reasons: [
+          {
+            id: 0,
+            delay: 0,
+            icon: 'bi-clipboard-data',
+            title: 'Corporis voluptates officia eiusmod',
+            description: 'Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip'
+          },
+          {
+            id: 1,
+            delay: 300,
+            icon: 'bi-gem',
+            title: 'Ullamco laboris ladore pan',
+            description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt'
+          },
+          {
+            id: 2,
+            delay: 400,
+            icon: 'bi-inboxes',
+            title: 'Labore consequatur incidid dolore',
+            description: 'Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere'
+          },
+        ]
       }
     }
   },
