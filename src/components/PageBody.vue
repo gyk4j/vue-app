@@ -2,7 +2,7 @@
   <main class="main">
     <HeroSection v-bind:value="hero"></HeroSection>
     <WhatWeDoSection v-bind:value="whatWeDo"></WhatWeDoSection>
-    <AboutSection></AboutSection>
+    <AboutSection v-bind:value="aboutUs"></AboutSection>
     <SkillsSection></SkillsSection>
     <StatsSection></StatsSection>
     <ServicesSection></ServicesSection>
@@ -42,6 +42,7 @@ export default {
   props: {
     hero: Object,
     whatWeDo: Object,
+    aboutUs: Object,
   },
   mounted() {
     /**
