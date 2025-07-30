@@ -3,7 +3,8 @@
     <PageHeader v-bind:scrollY="scrollY"></PageHeader>
     <PageBody
       v-bind:hero="hero"
-      v-bind:whatWeDo="whatWeDo">
+      v-bind:whatWeDo="whatWeDo"
+      v-bind:aboutUs="aboutUs">
     </PageBody>
     <PageFooter></PageFooter>
     <ScrollTopButton v-bind:scrollY="scrollY"></ScrollTopButton>
@@ -17,6 +18,8 @@ import PageBody from './components/PageBody.vue';
 import PageFooter from './components/PageFooter.vue';
 import ScrollTopButton from './components/ScrollTopButton.vue';
 import PreloaderOverlay from './components/PreloaderOverlay.vue';
+
+import about from './assets/img/about.jpg';
 
 export default {
   name: 'App',
@@ -67,6 +70,30 @@ export default {
             description: 'Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere'
           },
         ]
+      },
+      aboutUs: {
+        image: about,
+        title: 'About Us',
+        subtitle: 'Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit',
+        aboutTitle: 'Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.',
+        aboutBody: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        abouts: [
+          {
+            id: 0,
+            icon: 'bi-diagram-3',
+            heading: 'Ullamco laboris nisi ut aliquip consequat',
+            text: 'Magni facilis facilis repellendus cum excepturi quaerat praesentium libre trade'
+          },
+          {
+            id: 1,
+            icon: 'bi-fullscreen-exit',
+            heading: 'Magnam soluta odio exercitationem reprehenderi',
+            text: 'Quo totam dolorum at pariatur aut distinctio dolorum laudantium illo direna pasata redi'
+          }
+        ],
+        aboutEnding: 'Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate' +
+          'velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in' +
+          'culpa qui officia deserunt mollit anim id est laborum',
       }
     }
   },
