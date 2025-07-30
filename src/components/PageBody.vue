@@ -1,6 +1,6 @@
 <template>
   <main class="main">
-    <HeroSection></HeroSection>
+    <HeroSection v-bind:value="hero"></HeroSection>
     <WhatWeDoSection></WhatWeDoSection>
     <AboutSection></AboutSection>
     <SkillsSection></SkillsSection>
@@ -38,6 +38,9 @@ export default {
     TestimonialsSection,
     TeamSection,
     ContactSection,
+  },
+  props: {
+    hero: Object
   },
   mounted() {
     /**
