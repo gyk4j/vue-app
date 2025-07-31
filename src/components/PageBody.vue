@@ -1,8 +1,8 @@
 <template>
   <main class="main">
-    <HeroSection v-bind:value="hero"></HeroSection>
-    <WhatWeDoSection v-bind:value="whatWeDo"></WhatWeDoSection>
-    <AboutSection v-bind:value="aboutUs"></AboutSection>
+    <HeroSection v-bind:value="app.hero"></HeroSection>
+    <WhatWeDoSection v-bind:value="app.whatWeDo"></WhatWeDoSection>
+    <AboutSection v-bind:value="app.aboutUs"></AboutSection>
     <SkillsSection></SkillsSection>
     <StatsSection></StatsSection>
     <ServicesSection></ServicesSection>
@@ -40,9 +40,10 @@ export default {
     ContactSection,
   },
   props: {
-    hero: Object,
-    whatWeDo: Object,
-    aboutUs: Object,
+    app: Object
+    // hero: Object,
+    // whatWeDo: Object,
+    // aboutUs: Object,
   },
   mounted() {
     /**

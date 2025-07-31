@@ -1,11 +1,7 @@
 <template>
   <div v-scroll="onScroll">
     <PageHeader v-bind:scrollY="scrollY"></PageHeader>
-    <PageBody
-      v-bind:hero="hero"
-      v-bind:whatWeDo="whatWeDo"
-      v-bind:aboutUs="aboutUs">
-    </PageBody>
+    <PageBody v-bind:app="sections"></PageBody>
     <PageFooter></PageFooter>
     <ScrollTopButton v-bind:scrollY="scrollY"></ScrollTopButton>
     <PreloaderOverlay></PreloaderOverlay>
@@ -94,6 +90,15 @@ export default {
         aboutEnding: 'Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate' +
           'velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in' +
           'culpa qui officia deserunt mollit anim id est laborum',
+      }
+    }
+  },
+  computed: {
+    sections: function(){
+      return {
+        hero: this.hero, 
+        whatWeDo: this.whatWeDo, 
+        aboutUs: this.aboutUs
       }
     }
   },
