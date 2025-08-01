@@ -124,6 +124,30 @@ export default {
             value: 55
           },
         ]
+      },
+      stats: {
+        stats: [
+          {
+            id: 0,
+            name: 'Clients',
+            value: 232
+          },
+          {
+            id: 1,
+            name: 'Projects',
+            value: 521
+          },
+          {
+            id: 2,
+            name: 'Hours Of Support',
+            value: 1453
+          },
+          {
+            id: 3,
+            name: 'Workers',
+            value: 32
+          },
+        ]
       }
     }
   },
@@ -134,6 +158,7 @@ export default {
         whatWeDo: this.whatWeDo, 
         aboutUs: this.aboutUs,
         skills: this.skills,
+        stats: this.stats,
       }
     }
   },
