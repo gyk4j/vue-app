@@ -22,7 +22,7 @@ export default {
   name: 'HeroSection',
   props: {
     value: {
-      type: String,
+      type: Object,
       required: true, 
     }
   }

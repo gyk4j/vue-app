@@ -90,6 +90,40 @@ export default {
         aboutEnding: 'Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate' +
           'velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in' +
           'culpa qui officia deserunt mollit anim id est laborum',
+      },
+      skills: {
+        skills: [
+          {
+            id: 0,
+            name: 'HTML',
+            value: 100
+          },
+          {
+            id: 1,
+            name: 'CSS',
+            value: 90
+          },
+          {
+            id: 2,
+            name: 'JavaScript', 
+            value: 75
+          },
+          {
+            id: 3,
+            name: 'PHP',
+            value: 80
+          },
+          {
+            id: 4,
+            name: 'WordPress/CMS', 
+            value: 90
+          },
+          {
+            id: 5,
+            name: 'Photoshop',
+            value: 55
+          },
+        ]
       }
     }
   },
@@ -98,7 +132,8 @@ export default {
       return {
         hero: this.hero, 
         whatWeDo: this.whatWeDo, 
-        aboutUs: this.aboutUs
+        aboutUs: this.aboutUs,
+        skills: this.skills,
       }
     }
   },
