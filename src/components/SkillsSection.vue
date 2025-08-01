@@ -1,73 +1,44 @@
 <template>
-    <!-- Skills Section -->
-    <section id="skills" class="skills section">
+  <!-- Skills Section -->
+  <section id="skills" class="skills section">
 
-<div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-  <div class="row skills-content skills-animation">
+      <div class="row skills-content skills-animation">
 
-    <div class="col-lg-6">
+        <template v-for="skill in value.skills">
+          <div class="col-lg-6" v-bind:key="skill.id"> <!-- v-if="(skill.id % 3) == 0" -->
 
-      <div class="progress">
-        <span class="skill"><span>HTML</span> <i class="val">100%</i></span>
-        <div class="progress-bar-wrap">
-          <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-      </div><!-- End Skills Item -->
+            <div class="progress">
+              <span class="skill"><span>{{ skill.name }}</span> <i class="val">{{ skill.value }}%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" v-bind:aria-valuenow="skill.value" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div><!-- End Skills Item -->
+          
+          </div>
+        </template>
 
-      <div class="progress">
-        <span class="skill"><span>CSS</span> <i class="val">90%</i></span>
-        <div class="progress-bar-wrap">
-          <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-      </div><!-- End Skills Item -->
-
-      <div class="progress">
-        <span class="skill"><span>JavaScript</span> <i class="val">75%</i></span>
-        <div class="progress-bar-wrap">
-          <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-      </div><!-- End Skills Item -->
+      </div>
 
     </div>
 
-    <div class="col-lg-6">
-
-      <div class="progress">
-        <span class="skill"><span>PHP</span> <i class="val">80%</i></span>
-        <div class="progress-bar-wrap">
-          <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-      </div><!-- End Skills Item -->
-
-      <div class="progress">
-        <span class="skill"><span>WordPress/CMS</span> <i class="val">90%</i></span>
-        <div class="progress-bar-wrap">
-          <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-      </div><!-- End Skills Item -->
-
-      <div class="progress">
-        <span class="skill"><span>Photoshop</span> <i class="val">55%</i></span>
-        <div class="progress-bar-wrap">
-          <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-      </div><!-- End Skills Item -->
-
-    </div>
-
-  </div>
-
-</div>
-
-</section><!-- /Skills Section -->
+  </section><!-- /Skills Section -->
 </template>
 
 <script>
 export default {
   name: 'SkillsSection',
-  components: {
-    
+  props: {
+    value: {
+      type: Object,
+      required: true
+    }
+  },
+  data: function() {
+    return {
+      MAX_ROWS: 3
+    }
   },
   mounted() {
     /**

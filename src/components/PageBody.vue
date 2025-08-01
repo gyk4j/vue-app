@@ -3,7 +3,7 @@
     <HeroSection v-bind:value="app.hero"></HeroSection>
     <WhatWeDoSection v-bind:value="app.whatWeDo"></WhatWeDoSection>
     <AboutSection v-bind:value="app.aboutUs"></AboutSection>
-    <SkillsSection></SkillsSection>
+    <SkillsSection v-bind:value="app.skills"></SkillsSection>
     <StatsSection></StatsSection>
     <ServicesSection></ServicesSection>
     <PortfolioSection></PortfolioSection>
@@ -41,9 +41,6 @@ export default {
   },
   props: {
     app: Object
-    // hero: Object,
-    // whatWeDo: Object,
-    // aboutUs: Object,
   },
   mounted() {
     /**
