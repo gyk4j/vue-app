@@ -412,7 +412,20 @@ export default {
             linkedin: '#',
           },
         ]
-      }
+      },
+      contact: {
+        title: 'Contact',
+        subtitle: 'Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit',
+        address: 'A108 Adam Street, New York, NY 535022',
+        phone: '+1 5589 55488 55',
+        email: 'info@example.com',
+        formAction: 'forms/contact.php',
+        formMethod: 'post',
+        formName: 'Your Name',
+        formEmail: 'Your Email',
+        formSubject: 'Subject',
+        formMessage: 'Message',
+      },
     }
   },
   computed: {
@@ -427,6 +440,7 @@ export default {
         portfolio: this.portfolio,
         testimonials: this.testimonials,
         team: this.team,
+        contact: this.contact,
       }
     }
   },
