@@ -192,6 +192,137 @@ export default {
           },
         ]
       },
+      portfolio: {
+        title: 'Portfolio',
+        subtitle: 'Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit',
+        filters:
+        [
+          {
+            id: 0,
+            filter: '*',
+            text: 'All'
+          },
+          {
+            id: 1,
+            filter: '.filter-app',
+            text: 'App'
+          },
+          {
+            id: 2,
+            filter: '.filter-product',
+            text: 'Product'
+          },
+          {
+            id: 3,
+            filter: '.filter-branding',
+            text: 'Branding'
+          },
+          {
+            id: 4,
+            filter: '.filter-books',
+            text: 'Books'
+          },
+        ],
+        projects:
+        [
+          {
+            id: 0,
+            filter: 'app',
+            img: 'assets/img/portfolio/app-1.jpg',
+            name: 'App 1',
+            description: 'Lorem ipsum, dolor sit amet consectetur',
+            url: 'portfolio-details.html',
+          },
+          {
+            id: 1,
+            filter: 'product',
+            img: 'assets/img/portfolio/product-1.jpg',
+            name: 'Product 1',
+            description: 'Lorem ipsum, dolor sit amet consectetur',
+            url: 'portfolio-details.html',
+          },
+          {
+            id: 2,
+            filter: 'branding',
+            img: 'assets/img/portfolio/branding-1.jpg',
+            name: 'Branding 1',
+            description: 'Lorem ipsum, dolor sit amet consectetur',
+            url: 'portfolio-details.html',
+          },
+          {
+            id: 3,
+            filter: 'books',
+            img: 'assets/img/portfolio/books-1.jpg',
+            name: 'Books 1',
+            description: 'Lorem ipsum, dolor sit amet consectetur',
+            url: 'portfolio-details.html',
+          },
+          {
+            id: 4,
+            filter: 'app',
+            img: 'assets/img/portfolio/app-2.jpg',
+            name: 'App 2',
+            description: 'Lorem ipsum, dolor sit amet consectetur',
+            url: 'portfolio-details.html',
+          },
+          {
+            id: 5,
+            filter: 'product',
+            img: 'assets/img/portfolio/product-2.jpg',
+            name: 'Product 2',
+            description: 'Lorem ipsum, dolor sit amet consectetur',
+            url: 'portfolio-details.html',
+          },
+          {
+            id: 6,
+            filter: 'branding',
+            img: 'assets/img/portfolio/branding-2.jpg',
+            name: 'Branding 2',
+            description: 'Lorem ipsum, dolor sit amet consectetur',
+            url: 'portfolio-details.html',
+          },
+          {
+            id: 7,
+            filter: 'books',
+            img: 'assets/img/portfolio/books-2.jpg',
+            name: 'Books 2',
+            description: 'Lorem ipsum, dolor sit amet consectetur',
+            url: 'portfolio-details.html',
+          },
+          {
+            id: 8,
+            filter: 'app',
+            img: 'assets/img/portfolio/app-3.jpg',
+            name: 'App 3',
+            description: 'Lorem ipsum, dolor sit amet consectetur',
+            url: 'portfolio-details.html',
+          },
+          {
+            id: 9,
+            filter: 'product',
+            img: 'assets/img/portfolio/product-3.jpg',
+            name: 'Product 3',
+            description: 'Lorem ipsum, dolor sit amet consectetur',
+            url: 'portfolio-details.html',
+          },
+          {
+            id: 10,
+            filter: 'branding',
+            img: 'assets/img/portfolio/branding-3.jpg',
+            name: 'Branding 3',
+            description: 'Lorem ipsum, dolor sit amet consectetur',
+            url: 'portfolio-details.html',
+          },
+          {
+            id: 11,
+            filter: 'books',
+            img: 'assets/img/portfolio/books-3.jpg',
+            name: 'Books 3',
+            description: 'Lorem ipsum, dolor sit amet consectetur',
+            url: 'portfolio-details.html',
+          },
+        ],
+      },
     }
   },
   computed: {
@@ -203,6 +334,7 @@ export default {
         skills: this.skills,
         stats: this.stats,
         services: this.services,
+        portfolio: this.portfolio,
       }
     }
   },
