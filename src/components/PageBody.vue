@@ -7,7 +7,7 @@
     <StatsSection v-bind:value="app.stats"></StatsSection>
     <ServicesSection v-bind:value="app.services"></ServicesSection>
     <PortfolioSection v-bind:value="app.portfolio"></PortfolioSection>
-    <TestimonialsSection></TestimonialsSection>
+    <TestimonialsSection v-bind:value="app.testimonials"></TestimonialsSection>
     <TeamSection></TeamSection>
     <ContactSection></ContactSection>
   </main>
