@@ -8,7 +8,7 @@
     <ServicesSection v-bind:value="app.services"></ServicesSection>
     <PortfolioSection v-bind:value="app.portfolio"></PortfolioSection>
     <TestimonialsSection v-bind:value="app.testimonials"></TestimonialsSection>
-    <TeamSection></TeamSection>
+    <TeamSection v-bind:value="app.team"></TeamSection>
     <ContactSection></ContactSection>
   </main>
 </template>

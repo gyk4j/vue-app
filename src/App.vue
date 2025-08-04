@@ -369,6 +369,49 @@ export default {
             quote: 'Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.',
           },
         ]
+      },
+      team: {
+        title: 'Team',
+        subtitle: 'Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit',
+        members:
+        [
+          {
+            id: 0,
+            img: 'assets/img/team/team-1.jpg',
+            name: 'Joshua Stefan',
+            role: 'Web Development',
+            facebook: '#',
+            x: '#',
+            linkedin: '#',
+          },
+          {
+            id: 1,
+            img: 'assets/img/team/team-2.jpg',
+            name: 'Sheena Anderson',
+            role: 'Marketing',
+            facebook: '#',
+            x: '#',
+            linkedin: '#',
+          },
+          {
+            id: 2,
+            img: 'assets/img/team/team-3.jpg',
+            name: 'Evan Smith',
+            role: 'Content',
+            facebook: '#',
+            x: '#',
+            linkedin: '#',
+          },
+          {
+            id: 3,
+            img: 'assets/img/team/team-4.jpg',
+            name: 'Kaylie Jones',
+            role: 'Accountant',
+            facebook: '#',
+            x: '#',
+            linkedin: '#',
+          },
+        ]
       }
     }
   },
@@ -383,6 +426,7 @@ export default {
         services: this.services,
         portfolio: this.portfolio,
         testimonials: this.testimonials,
+        team: this.team,
       }
     }
   },
