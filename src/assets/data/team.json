@@ -1,0 +1,43 @@
+{
+  "title": "Team",
+  "subtitle": "Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit",
+  "members":
+  [
+    {
+      "id": 0,
+      "img": "assets/img/team/team-1.jpg",
+      "name": "Joshua Stefan",
+      "role": "Web Development",
+      "facebook": "#",
+      "x": "#",
+      "linkedin": "#"
+    },
+    {
+      "id": 1,
+      "img": "assets/img/team/team-2.jpg",
+      "name": "Sheena Anderson",
+      "role": "Marketing",
+      "facebook": "#",
+      "x": "#",
+      "linkedin": "#"
+    },
+    {
+      "id": 2,
+      "img": "assets/img/team/team-3.jpg",
+      "name": "Evan Smith",
+      "role": "Content",
+      "facebook": "#",
+      "x": "#",
+      "linkedin": "#"
+    },
+    {
+      "id": 3,
+      "img": "assets/img/team/team-4.jpg",
+      "name": "Kaylie Jones",
+      "role": "Accountant",
+      "facebook": "#",
+      "x": "#",
+      "linkedin": "#"
+    }
+  ]
+}
