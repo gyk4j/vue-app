@@ -1,0 +1,19 @@
+{
+  "title": "Contact",
+  "subtitle": "Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit",
+  "info":
+  {
+    "address": "A108 Adam Street, New York, NY 535022",
+    "phone": "+1 5589 55488 55",
+    "email": "info@example.com"
+  },
+  "form":
+  {
+    "action": "forms/contact.php",
+    "method": "post",
+    "name": "Your Name",
+    "email": "Your Email",
+    "subject": "Subject",
+    "message": "Message"
+  }
+}
