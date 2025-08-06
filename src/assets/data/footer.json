@@ -1,0 +1,38 @@
+{
+  "title": "Lumia",
+  "subtitle": "Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.",
+  "social":
+  [
+    { "icon" : "bi-twitter-x", "url": "https://x.com/lumia" },
+    { "icon" : "bi-facebook", "url": "https://www.facebook.com/lumia" },
+    { "icon" : "bi-instagram", "url": "https://www.instagram.com/lumia" },
+    { "icon" : "bi-linkedin", "url": "https://www.linkedin.com/lumia" }
+  ],
+  "usefulLinks":
+  [
+    { "text": "Home", "url": "#" },
+    { "text": "About us", "url": "#" },
+    { "text": "Services", "url": "#" },
+    { "text": "Terms of service", "url": "#" },
+    { "text": "Privacy policy", "url": "#" }
+  ],
+  "ourServices":
+  [
+    { "text": "Web Design", "url": "#" },
+    { "text": "Web Development", "url": "#" },
+    { "text": "Product Management", "url": "#" },
+    { "text": "Marketing", "url": "#" },
+    { "text": "Graphic Design", "url": "#" }
+  ],
+  "contactUs":
+  {
+    "address":
+    [
+      "A108 Adam Street",
+      "New York, NY 535022",
+      "United States"
+    ],
+    "phone": "+1 5589 55488 55",
+    "email": "info@example.com"
+  }
+}

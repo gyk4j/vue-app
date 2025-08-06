@@ -2,7 +2,7 @@
   <div v-scroll="onScroll">
     <PageHeader v-bind:scrollY="scrollY"></PageHeader>
     <PageBody v-bind:app="sections"></PageBody>
-    <PageFooter></PageFooter>
+    <PageFooter v-bind:value="footer"></PageFooter>
     <ScrollTopButton v-bind:scrollY="scrollY"></ScrollTopButton>
     <PreloaderOverlay></PreloaderOverlay>
   </div>
@@ -27,6 +27,7 @@ import PortfolioJson from './assets/data/portfolio.json';
 import TestimonialsJson from './assets/data/testimonials.json';
 import TeamJson from './assets/data/team.json';
 import ContactJson from './assets/data/contact.json';
+import FooterJson from './assets/data/footer.json';
 
 export default {
   name: 'App',
@@ -55,7 +56,8 @@ export default {
         testimonials: TestimonialsJson,
         team: TeamJson,
         contact: ContactJson,
-      }
+      },
+      footer: FooterJson
     }
   },
   mounted() {
