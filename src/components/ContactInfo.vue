@@ -1,26 +1,10 @@
 <template>
   <div class="col-lg-5">
-    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-      <i class="bi bi-geo-alt flex-shrink-0"></i>
+    <div v-for="(contact, idx) in value" v-bind:key="idx" class="info-item d-flex" data-aos="fade-up" v-bind:data-aos-delay="contact.delay">
+      <i class="bi flex-shrink-0" v-bind:class="contact.icon"></i>
       <div>
-        <h3>Address</h3>
-        <p>{{ value.address }}</p>
-      </div>
-    </div><!-- End Info Item -->
-
-    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-      <i class="bi bi-telephone flex-shrink-0"></i>
-      <div>
-        <h3>Call Us</h3>
-        <p>{{ value.phone }}</p>
-      </div>
-    </div><!-- End Info Item -->
-
-    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-      <i class="bi bi-envelope flex-shrink-0"></i>
-      <div>
-        <h3>Email Us</h3>
-        <p>{{ value.email }}</p>
+        <h3>{{ contact.key }}</h3>
+        <p>{{ contact.value }}</p>
       </div>
     </div><!-- End Info Item -->
 
@@ -32,7 +16,7 @@ export default {
   name: 'ContactInfo',
   props: {
     value: {
-      type: Object,
+      type: Array,
       required: true,
     }
   }
