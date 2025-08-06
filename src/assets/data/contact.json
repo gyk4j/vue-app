@@ -2,18 +2,33 @@
   "title": "Contact",
   "subtitle": "Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit",
   "info":
-  {
-    "address": "A108 Adam Street, New York, NY 535022",
-    "phone": "+1 5589 55488 55",
-    "email": "info@example.com"
-  },
+  [
+    {
+      "delay": 200,
+      "icon": "bi-geo-alt",
+      "key": "Address",
+      "value": "A108 Adam Street, New York, NY 535022"
+    },
+    {
+      "delay": 300,
+      "icon": "bi-telephone",
+      "key": "Call Us",
+      "value": "+1 5589 55488 55"
+    },
+    {
+      "delay": 400,
+      "icon": "bi-envelope",
+      "key": "Email Us",
+      "value": "info@example.com"
+    }
+  ],
   "form":
   {
     "action": "forms/contact.php",
     "method": "post",
-    "name": "Your Name",
-    "email": "Your Email",
-    "subject": "Subject",
-    "message": "Message"
+    "placeholderName": "Your Name",
+    "placeholderEmail": "Your Email",
+    "placeholderSubject": "Subject",
+    "placeholderMessage": "Message"
   }
 }
