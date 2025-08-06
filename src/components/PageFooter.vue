@@ -10,7 +10,7 @@
 
         <PageFooterLinkList v-bind:value="services"></PageFooterLinkList>
 
-        <PageFooterContactUs v-bind:value="value.contactUs"></PageFooterContactUs>
+        <PageFooterContactUs v-bind:value="contact"></PageFooterContactUs>
 
         <PageFooterCopyright v-bind:value="copyright"></PageFooterCopyright>
 
@@ -58,6 +58,12 @@ export default {
       return {
         list: 'Our Services',
         links: this.value.ourServices
+      }
+    },
+    contact: function() {
+      return {
+        list: 'Contact Us',
+        contact: this.value.contactUs
       }
     },
     copyright: function() {
