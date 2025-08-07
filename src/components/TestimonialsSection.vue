@@ -10,50 +10,10 @@
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-      <div class="swiper init-swiper">
-        <script type="application/json" class="swiper-config">
-          {
-            "loop": true,
-            "speed": 600,
-            "autoplay": {
-              "delay": 5000
-            },
-            "slidesPerView": "auto",
-            "pagination": {
-              "el": ".swiper-pagination",
-              "type": "bullets",
-              "clickable": true
-            },
-            "breakpoints": {
-              "320": {
-                "slidesPerView": 1,
-                "spaceBetween": 40
-              },
-              "1200": {
-                "slidesPerView": 3,
-                "spaceBetween": 10
-              }
-            }
-          }
-        </script>
+      <div class="swiper init-swiper" v-bind:class="{ 'swiper-tab': swiperTab }" ref="initSwiper">        
         <div class="swiper-wrapper">
 
-          <div v-for="t in value.testimonials" v-bind:key="t.id" class="swiper-slide">
-            <div class="testimonial-item">
-              <img v-bind:src="t.img" class="testimonial-img" alt="">
-              <h3>{{ t.name }}</h3>
-              <h4>{{ t.role }}</h4>
-              <div class="stars">
-                <i v-for="(r, idx) in t.rating" v-bind:key="'f'+idx" class="bi bi-star-fill"></i>
-                <i v-for="(r, idx) in 5-t.rating" v-bind:key="'e'+idx" class="bi bi-star"></i>
-              </div>
-              <p>
-                <i class="bi bi-quote quote-icon-left"></i>
-                <span>{{ t.quote }}</span>
-                <i class="bi bi-quote quote-icon-right"></i>
-              </p>
-            </div>
-          </div><!-- End testimonial item -->
+          <TestimonialItem v-for="t in value.testimonials" v-bind:key="t.id" v-bind:value="t"></TestimonialItem>
 
         </div>
         <div class="swiper-pagination"></div>
@@ -65,12 +25,22 @@
 </template>
 
 <script>
+import TestimonialItem from './TestimonialItem.vue';
+
 export default {
   name: 'TestimonialsSection',
+  components: {
+     TestimonialItem
+  },
   props: {
     value: {
       type: Object,
       required: true,
+    },
+    swiperTab: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   mounted() {
@@ -81,19 +51,39 @@ export default {
   },
   methods: {
     initSwiper() {
-      document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
-        let config = JSON.parse(
-          swiperElement.querySelector(".swiper-config").innerHTML.trim()
-        );
+      const swiperElement = this.$refs.initSwiper // ... ref="initSwiper"
 
-        if (swiperElement.classList.contains("swiper-tab")) {
-          // eslint-disable-next-line
-          initSwiperWithCustomPagination(swiperElement, config);
-        } else {
-          // eslint-disable-next-line
-          new Swiper(swiperElement, config);
+      const config = {
+        "loop": true,
+        "speed": 600,
+        "autoplay": {
+          "delay": 5000
+        },
+        "slidesPerView": "auto",
+        "pagination": {
+          "el": ".swiper-pagination",
+          "type": "bullets",
+          "clickable": true
+        },
+        "breakpoints": {
+          "320": {
+            "slidesPerView": 1,
+            "spaceBetween": 40
+          },
+          "1200": {
+            "slidesPerView": 3,
+            "spaceBetween": 10
+          }
         }
-      });
+      }       
+
+      if (this.swiperTab) {
+        // eslint-disable-next-line
+        initSwiperWithCustomPagination(swiperElement, config);
+      } else {
+        // eslint-disable-next-line
+        new Swiper(swiperElement, config);
+      }
     },
   }
 }
