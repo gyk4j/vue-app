@@ -9,15 +9,7 @@
 
     <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
-      <div v-for="p in value.projects" v-bind:key="p.id" class="col-lg-4 col-md-6 portfolio-item isotope-item" v-bind:class="filterClass(p)">
-        <img v-bind:src="p.img" class="img-fluid" alt="">
-        <div class="portfolio-info">
-          <h4>{{ p.name }}</h4>
-          <p>{{ p.description }}</p>
-          <a v-bind:href="p.img" v-bind:title="p.name" data-gallery="dataGallery(p)" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-          <a v-bind:href="p.url" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-        </div>
-      </div><!-- End Portfolio Item -->
+      <PortfolioIsotopeItem v-for="project in value.projects" v-bind:key="project.id" v-bind:value="project"></PortfolioIsotopeItem>
 
     </div><!-- End Portfolio Container -->
 
@@ -25,24 +17,21 @@
 </template>
 
 <script>
+import PortfolioIsotopeItem from './PortfolioIsotopeItem.vue';
+
 export default {
   name: 'PortfolioIsotopeLayout',
+  components: {
+    PortfolioIsotopeItem
+  },
   props: {
     value: {
       type: Object,
       required: true
     }
   },
-  methods: {
-    filterClass: function(project) {
-      return 'filter-' + project.filter
-    },
-    dataGallery: function(project) {
-      return 'portfolio-gallery-' + project.filter
-    }
-  },
   mounted() {
-    
+
     /**
      * Initiate glightbox
      */
