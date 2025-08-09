@@ -1,18 +1,18 @@
 <template>
   <a v-if="!dropdown" 
     v-bind:href="href" 
-    v-bind:class="navmenuScrollspy"
+    v-bind:class="{ 'active': active }"
     v-on:click="toggleMobileNav"
   >
     {{ text }}
   </a>
   <a v-else 
     href="#" 
-    v-bind:class="navmenuScrollspy"
+    v-bind:class="{ 'active': active }"
     v-on:click="toggleMobileNav"
   >
     <span 
-      v-bind:class="{ 'dropdown-active': i_dropdownActive }">
+      v-bind:class="{ 'dropdown-active': dropdownActive }">
       {{ text }}
     </span>
     <i class="bi bi-chevron-down toggle-dropdown" 
@@ -48,44 +48,12 @@ export default {
     mobileNavToogle: {
       type: Function,
       required: true
-    },
-    scrollY: {
-      type: Number,
-      required: true,
-      default: 0
-    }
+    },    
   },
   data() {
     return {
-      // i_active: this.active,
-      i_dropdownActive: false
+      dropdownActive: false
     }
-  },
-  computed: {
-    hash: function() {
-      return this.href.trim().startsWith('#')? this.href.trim(): ''
-    },
-    navmenuScrollspy: function() {      
-      let position = this.scrollY + 200;
-      let i_active = false
-      // if (!this.hash) {
-      //   i_active = false
-      // }
-      let section = document.querySelector((!this.hash)? '#hero' : this.hash);
-      if (!section) {
-        i_active = false
-      } else {
-        if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-          i_active = true
-        } else {
-          i_active = false
-        }
-      }
-
-      return {
-        'active': i_active
-      }
-    },
   },
   mounted() {
     /**
@@ -118,9 +86,8 @@ export default {
   },
   methods: {
     toggleDropDown(/* e */) {
-      // e.preventDefault();
-      // this.i_active = !this.i_active;
-      this.i_dropdownActive = !this.i_dropdownActive;
+      // e.preventDefault();      
+      this.dropdownActive = !this.dropdownActive;
       // e.stopImmediatePropagation();
     },
     toggleMobileNav() {

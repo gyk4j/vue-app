@@ -1,0 +1,52 @@
+{
+  "siteName": "Lumia",
+  "social": [
+    {
+      "class": "twitter", 
+      "icon" : "bi-twitter-x", 
+      "url": "https://x.com/lumia"
+    },
+    {
+      "class": "facebook",
+      "icon" : "bi-facebook",
+      "url": "https://www.facebook.com/lumia"
+    },
+    {
+      "class": "instagram",
+      "icon" : "bi-instagram",
+      "url": "https://www.instagram.com/lumia"
+    },
+    {
+      "class": "linkedin",
+      "icon" : "bi-linkedin",
+      "url": "https://www.linkedin.com/lumia"
+    }
+  ],
+  "navmenu": [
+    {
+      "text": "Home",
+      "url": "#hero"
+    },
+    {
+      "text": "About",      
+      "url": "#about"
+    },
+    {
+      "text": "Services",      
+      "url": "#services"
+    },
+    {
+      "text": "Portfolio",      
+      "url": "#portfolio"
+    },
+    {
+      "text": "Team",      
+      "url": "#team"
+    },
+    {
+      "text": "Contact",
+      "active": false,
+      "url": "#contact"
+    }
+  ]
+}
