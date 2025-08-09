@@ -1,6 +1,6 @@
 <template>
   <div v-scroll="onScroll">
-    <PageHeader v-bind:scrollY="scrollY"></PageHeader>
+    <PageHeader v-bind:value="header" v-bind:scrollY="scrollY"></PageHeader>
     <PageBody v-bind:app="sections"></PageBody>
     <PageFooter v-bind:value="footer"></PageFooter>
     <ScrollTopButton v-bind:scrollY="scrollY"></ScrollTopButton>
@@ -17,6 +17,7 @@ import PreloaderOverlay from './components/PreloaderOverlay.vue';
 
 import AboutJpg from './assets/img/about.jpg';
 
+import HeaderJson from './assets/data/header.json'
 import HeroJson from './assets/data/hero.json';
 import WhatWeDoJson from './assets/data/whatwedo.json';
 import AboutUsJson from './assets/data/aboutus.json';
@@ -45,6 +46,7 @@ export default {
     return {
       // Replaces toggleScrollTop() in ScrollTopButton.vue using bound data.
       scrollY: window.scrollY,
+      header: HeaderJson,
       sections: {
         hero: HeroJson,
         whatWeDo: WhatWeDoJson,
