@@ -44,10 +44,6 @@ export default {
       type: String,
       required: false,
       default: ''
-    },
-    mobileNavToogle: {
-      type: Function,
-      required: true
     },    
   },
   data() {
@@ -91,11 +87,7 @@ export default {
       // e.stopImmediatePropagation();
     },
     toggleMobileNav() {
-      if (this.mobileNavToogle){
-        this.mobileNavToogle()
-      } else {
-        console.log("Click ignored.")
-      }
+      this.$emit('toggle-mobile-nav')
     }
   }
 }
