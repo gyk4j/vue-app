@@ -1,6 +1,6 @@
 <template>
   <div class="col-lg-7">
-    <form v-bind:action="value.action" v-bind:method="value.method" v-on:submit="onSubmit" class="php-email-form" data-aos="fade-up" data-aos-delay="500">
+    <form v-bind:action="value.action" v-bind:method="value.method" v-on:submit.stop.prevent="onSubmit" class="php-email-form" data-aos="fade-up" data-aos-delay="500">
       <div class="row gy-4">
 
         <div class="col-md-6">
@@ -55,7 +55,12 @@ export default {
         `Name: ${this.senderName}\n` +
         `Email: ${this.senderEmail}\n` +
         `Subject: ${this.senderSubject}\n` +
-        `Message: ${this.senderMessage}`
+        `Message: ${this.senderMessage}\n\n` +
+        `Note: This form will NOT be submitted to action URL "${this.value.action}".\n\n` +
+        'To activate submission, change:\n' +
+        '\tv-on:submit.stop.prevent= ...\n' +
+        'to: \n' +
+        '\tv-on:submit= ...\n'
       )
     }
   }
