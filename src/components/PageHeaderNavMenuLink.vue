@@ -19,12 +19,7 @@ export default {
       type: Boolean,
       required: false,
       default: false
-    },
-    text: {
-      type: String,
-      required: false,
-      default: ''
-    },    
+    }  
   },
   mounted() {
     /**
