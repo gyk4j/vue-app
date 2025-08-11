@@ -10,34 +10,37 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li v-for="(a, ia) in value.navmenu" v-bind:key="ia">
-            <PageHeaderNavMenuLink v-bind:href="a.url" v-bind:active="activated(a.url)" v-bind:text="a.text" v-on:toggle-mobile-nav="mobileNavToogle"></PageHeaderNavMenuLink>
-          </li>
           <!--
-          <li><PageHeaderNavMenuLink href="#hero" v-bind:active="active" text="Home" v-on:toggle-mobile-nav="mobileNavToogle"></PageHeaderNavMenuLink></li>          
-          <li><PageHeaderNavMenuLink href="#about" v-bind:active="active" text="About" v-on:toggle-mobile-nav="mobileNavToogle"></PageHeaderNavMenuLink></li>
-          <li><PageHeaderNavMenuLink href="#services" v-bind:active="active" text="Services" v-on:toggle-mobile-nav="mobileNavToogle"></PageHeaderNavMenuLink></li>
-          <li><PageHeaderNavMenuLink href="#portfolio" v-bind:active="active" text="Portfolio" v-on:toggle-mobile-nav="mobileNavToogle"></PageHeaderNavMenuLink></li>          
-          <li><PageHeaderNavMenuLink href="#team" v-bind:active="active" text="Team" v-on:toggle-mobile-nav="mobileNavToogle"></PageHeaderNavMenuLink></li>          
-          <li class="dropdown"><PageHeaderNavMenuLink dropdown text="Dropdown" v-on:toggle-mobile-nav="mobileNavToogle"></PageHeaderNavMenuLink>
-            <ul>
-              <li><PageHeaderNavMenuLink text="Dropdown 1" v-on:toggle-mobile-nav="mobileNavToogle"></PageHeaderNavMenuLink></li>
-              <li class="dropdown"><PageHeaderNavMenuLink dropdown text="Deep Dropdown" v-on:toggle-mobile-nav="mobileNavToogle"></PageHeaderNavMenuLink>
-                <ul>
-                  <li><PageHeaderNavMenuLink text="Deep Dropdown 1" v-on:toggle-mobile-nav="mobileNavToogle"></PageHeaderNavMenuLink></li>
-                  <li><PageHeaderNavMenuLink text="Deep Dropdown 2" v-on:toggle-mobile-nav="mobileNavToogle"></PageHeaderNavMenuLink></li>
-                  <li><PageHeaderNavMenuLink text="Deep Dropdown 3" v-on:toggle-mobile-nav="mobileNavToogle"></PageHeaderNavMenuLink></li>
-                  <li><PageHeaderNavMenuLink text="Deep Dropdown 4" v-on:toggle-mobile-nav="mobileNavToogle"></PageHeaderNavMenuLink></li>
-                  <li><PageHeaderNavMenuLink text="Deep Dropdown 5" v-on:toggle-mobile-nav="mobileNavToogle"></PageHeaderNavMenuLink></li>
-                </ul>
-              </li>
-              <li><PageHeaderNavMenuLink text="Dropdown 2" v-on:toggle-mobile-nav="mobileNavToogle"></PageHeaderNavMenuLink></li>
-              <li><PageHeaderNavMenuLink text="Dropdown 3" v-on:toggle-mobile-nav="mobileNavToogle"></PageHeaderNavMenuLink></li>
-              <li><PageHeaderNavMenuLink text="Dropdown 4" v-on:toggle-mobile-nav="mobileNavToogle"></PageHeaderNavMenuLink></li>
-            </ul>
-          </li>          
-          <li><PageHeaderNavMenuLink href="#contact" v-bind:active="active" text="Contact" v-on:toggle-mobile-nav="mobileNavToogle"></PageHeaderNavMenuLink></li>
+          <PageHeaderNavMenuLink 
+            v-for="(a, ia) in value.navmenu" 
+            v-bind:key="ia" 
+            v-bind:href="a.url" 
+            v-bind:active="isVisible(a.url)"  
+            v-on:toggle-mobile-nav="mobileNavToogle">
+            {{ a.text }}
+          </PageHeaderNavMenuLink>
           -->
+          <!-- Begin -->
+          <PageHeaderNavMenuLink href="#hero" v-bind:active="isVisible('#hero')" v-on:toggle-mobile-nav="mobileNavToogle">Home</PageHeaderNavMenuLink>
+          <PageHeaderNavMenuLink href="#about" v-bind:active="isVisible('#about')" v-on:toggle-mobile-nav="mobileNavToogle">About</PageHeaderNavMenuLink>
+          <PageHeaderNavMenuLink href="#services" v-bind:active="isVisible('#services')" v-on:toggle-mobile-nav="mobileNavToogle">Services</PageHeaderNavMenuLink>
+          <PageHeaderNavMenuLink href="#portfolio" v-bind:active="isVisible('#portfolio')" v-on:toggle-mobile-nav="mobileNavToogle">Portfolio</PageHeaderNavMenuLink>
+          <PageHeaderNavMenuLink href="#team" v-bind:active="isVisible('#team')" v-on:toggle-mobile-nav="mobileNavToogle">Team</PageHeaderNavMenuLink>
+          <PageHeaderNavMenuDropdown text="Dropdown" v-on:toggle-mobile-nav="mobileNavToogle">
+            <PageHeaderNavMenuLink v-on:toggle-mobile-nav="mobileNavToogle">Dropdown 1</PageHeaderNavMenuLink>
+            <PageHeaderNavMenuDropdown text="Deep Dropdown" v-on:toggle-mobile-nav="mobileNavToogle">
+              <PageHeaderNavMenuLink v-on:toggle-mobile-nav="mobileNavToogle">Deep Dropdown 1</PageHeaderNavMenuLink>
+              <PageHeaderNavMenuLink v-on:toggle-mobile-nav="mobileNavToogle">Deep Dropdown 2</PageHeaderNavMenuLink>
+              <PageHeaderNavMenuLink v-on:toggle-mobile-nav="mobileNavToogle">Deep Dropdown 3</PageHeaderNavMenuLink>
+              <PageHeaderNavMenuLink v-on:toggle-mobile-nav="mobileNavToogle">Deep Dropdown 4</PageHeaderNavMenuLink>
+              <PageHeaderNavMenuLink v-on:toggle-mobile-nav="mobileNavToogle">Deep Dropdown 5</PageHeaderNavMenuLink>
+            </PageHeaderNavMenuDropdown>
+            <PageHeaderNavMenuLink v-on:toggle-mobile-nav="mobileNavToogle">Dropdown 2</PageHeaderNavMenuLink>
+            <PageHeaderNavMenuLink v-on:toggle-mobile-nav="mobileNavToogle">Dropdown 3</PageHeaderNavMenuLink>
+            <PageHeaderNavMenuLink v-on:toggle-mobile-nav="mobileNavToogle">Dropdown 4</PageHeaderNavMenuLink>
+          </PageHeaderNavMenuDropdown>          
+          <PageHeaderNavMenuLink href="#contact" v-bind:active="isVisible('#contact')" v-on:toggle-mobile-nav="mobileNavToogle">Contact</PageHeaderNavMenuLink>
+          <!-- End -->
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi"
           v-bind:class="{ 'bi-list': !mobileNavToggleBtn, 'bi-x': mobileNavToggleBtn }"
@@ -62,11 +65,13 @@
 
 <script>
 import PageHeaderNavMenuLink from './PageHeaderNavMenuLink.vue';
+import PageHeaderNavMenuDropdown from './PageHeaderNavMenuDropdown.vue';
 
 export default {
   name: 'PageHeader',
   components: {
-    PageHeaderNavMenuLink
+    PageHeaderNavMenuLink,
+    PageHeaderNavMenuDropdown
   },
   props: {
     value: {
@@ -86,10 +91,10 @@ export default {
     }
   },
   computed: {
-    activated: function() {
+    isVisible: function() {
       return (hash) => {
         let active = hash === this.active
-        // console.log(`activated: ${hash} === ${this.active} = ${active}`)
+        // console.log(`isVisible: ${hash} === ${this.active} = ${active}`)
         return active
       }
     }
@@ -119,7 +124,7 @@ export default {
         }
       })
     },
-    mobileNavToogle() {      
+    mobileNavToogle() {
       document.querySelector('body').classList.toggle('mobile-nav-active');
       this.mobileNavToggleBtn = !this.mobileNavToggleBtn;
     },

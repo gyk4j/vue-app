@@ -1,39 +1,19 @@
 <template>
-  <a v-if="!dropdown" 
-    v-bind:href="href" 
-    v-bind:class="{ 'active': active }"
-    v-on:click="toggleMobileNav"
-  >
-    {{ text }}
-  </a>
-  <a v-else 
-    href="#" 
-    v-bind:class="{ 'active': active }"
-    v-on:click="toggleMobileNav"
-  >
-    <span 
-      v-bind:class="{ 'dropdown-active': dropdownActive }">
-      {{ text }}
-    </span>
-    <i class="bi bi-chevron-down toggle-dropdown" 
-      v-on:click="toggleDropDown">
-    </i>
-  </a>
+  <li>
+    <a v-bind:href="href" v-bind:class="{ 'active': active }" v-on:click="toggleMobileNav">
+      <slot></slot>
+    </a>
+  </li>
 </template>
 
 <script>
 export default {
   name: 'PageHeaderNavMenuLink',
   props: {
-    dropdown: {
-      type: Boolean,
-      required: false,
-      default: false
-    },
     href: {
       type: String,
       required: false,
-      default: ''
+      default: '#'
     },
     active: {
       type: Boolean,
@@ -45,11 +25,6 @@ export default {
       required: false,
       default: ''
     },    
-  },
-  data() {
-    return {
-      dropdownActive: false
-    }
   },
   mounted() {
     /**
@@ -81,11 +56,6 @@ export default {
     // document.addEventListener('scroll', this.navmenuScrollspy);
   },
   methods: {
-    toggleDropDown(/* e */) {
-      // e.preventDefault();      
-      this.dropdownActive = !this.dropdownActive;
-      // e.stopImmediatePropagation();
-    },
     toggleMobileNav() {
       this.$emit('toggle-mobile-nav')
     }
