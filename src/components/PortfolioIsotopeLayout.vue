@@ -26,6 +26,10 @@
 </template>
 
 <script>
+import GLightbox from 'glightbox'
+import imagesLoaded from 'imagesloaded'
+import Isotope from 'isotope-layout'
+
 import PortfolioIsotopeItem from './PortfolioIsotopeItem.vue';
 
 export default {
@@ -52,20 +56,17 @@ export default {
     /**
      * Initiate glightbox
      */
-    // eslint-disable-next-line
-    const glightbox = GLightbox({
+    /* const glightbox = */ GLightbox({
       selector: '.glightbox'
     });
 
     /**
      * Init isotope layout and filters
      */
-    // eslint-disable-next-line
     imagesLoaded(this.$refs.isotopeContainer, this.onImagesLoaded);
   },
   methods: {
     onImagesLoaded: function() {
-      // eslint-disable-next-line
       this.initIsotope = new Isotope(this.$refs.isotopeContainer, {
         itemSelector: '.isotope-item',
         layoutMode: this.layout,

@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import PureCounter from '@srexi/purecounterjs';
+
 export default {
   name: 'StatsSection',
   props: {
@@ -33,7 +35,6 @@ export default {
     /**
      * Initiate Pure Counter
      */
-    // eslint-disable-next-line
     new PureCounter();
   }
 }
