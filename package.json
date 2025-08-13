@@ -8,8 +8,18 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "@srexi/purecounterjs": "^1.5.0",
+    "aos": "^2.3.4",
+    "bootstrap": "^5.3.7",
+    "bootstrap-icons": "^1.13.1",
     "core-js": "^3.8.3",
-    "vue": "^2.6.14"
+    "glightbox": "^3.3.1",
+    "imagesloaded": "^5.0.0",
+    "isotope-layout": "^3.0.6",
+    "swiper": "^11.2.10",
+    "vue": "^2.6.14",
+    "waypoints": "^4.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

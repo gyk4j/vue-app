@@ -1,3 +1,10 @@
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap'
+import 'bootstrap-icons/font/bootstrap-icons.min.css'
+import 'aos/dist/aos.css'
+import 'glightbox/dist/css/glightbox.min.css'
+import 'swiper/css/bundle'
+
 import Vue from 'vue'
 import App from './App.vue'
 import './assets/css/main.css'

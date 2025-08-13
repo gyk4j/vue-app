@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import AOS from 'aos'
+
 import HeroSection from './HeroSection.vue';
 import WhatWeDoSection from './WhatWeDoSection.vue';
 import AboutSection from './AboutSection.vue';
@@ -50,7 +52,6 @@ export default {
   },
   methods: {
     aosInit() {
-      // eslint-disable-next-line
       AOS.init({
         duration: 600,
         easing: 'ease-in-out',

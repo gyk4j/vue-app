@@ -4,7 +4,7 @@
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-      <div class="row skills-content skills-animation">
+      <div class="row skills-content skills-animation" ref="skillsAnimation">
 
         <template v-for="skill in value.skills">
           <div class="col-lg-6" v-bind:key="skill.id"> <!-- v-if="(skill.id % 3) == 0" -->
@@ -12,7 +12,7 @@
             <div class="progress">
               <span class="skill"><span>{{ skill.name }}</span> <i class="val">{{ skill.value }}%</i></span>
               <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" v-bind:aria-valuenow="skill.value" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" ref="progressBar" v-bind:aria-valuenow="skill.value" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div><!-- End Skills Item -->
           
@@ -27,6 +27,8 @@
 </template>
 
 <script>
+import Waypoint from 'waypoints/lib/noframework.waypoints.js'
+
 export default {
   name: 'SkillsSection',
   props: {
@@ -44,15 +46,13 @@ export default {
     /**
      * Animate the skills items on reveal
      */
-    let skillsAnimation = document.querySelectorAll('.skills-animation');
+    let skillsAnimation = this.$refs.skillsAnimation
     skillsAnimation.forEach((item) => {
-      // eslint-disable-next-line
       new Waypoint({
         element: item,
         offset: '80%',
-        // eslint-disable-next-line
-        handler: function(direction) {
-          let progress = item.querySelectorAll('.progress .progress-bar');
+        handler: function(/*direction*/) {
+          let progress = this.$refs.progressBar
           progress.forEach(el => {
             el.style.width = el.getAttribute('aria-valuenow') + '%';
           });

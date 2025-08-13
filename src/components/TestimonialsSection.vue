@@ -25,6 +25,9 @@
 </template>
 
 <script>
+import Swiper from 'swiper/bundle'
+import initSwiperWithCustomPagination from 'swiper/bundle'
+
 import TestimonialItem from './TestimonialItem.vue';
 
 export default {
@@ -78,10 +81,8 @@ export default {
       }       
 
       if (this.swiperTab) {
-        // eslint-disable-next-line
         initSwiperWithCustomPagination(swiperElement, config);
       } else {
-        // eslint-disable-next-line
         new Swiper(swiperElement, config);
       }
     },
