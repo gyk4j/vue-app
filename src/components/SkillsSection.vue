@@ -27,7 +27,16 @@
 </template>
 
 <script>
-import Waypoint from 'waypoints/lib/noframework.waypoints.js'
+// This hooks "window.Waypoint" with the constructor when imported and run.
+//
+// This unmaintained waypoints library is not written as a CommonJS or ESM 
+// module that can be imported in the usual way. For example, we can't: 
+//
+//    import Waypoint from 'waypoints'
+//    import { Waypoint } from 'waypoints'
+//    import * as Waypoint from 'waypoints'
+
+import 'waypoints/lib/noframework.waypoints.js'
 
 export default {
   name: 'SkillsSection',
@@ -46,18 +55,19 @@ export default {
     /**
      * Animate the skills items on reveal
      */
-    let skillsAnimation = this.$refs.skillsAnimation
-    skillsAnimation.forEach((item) => {
-      new Waypoint({
-        element: item,
-        offset: '80%',
-        handler: function(/*direction*/) {
-          let progress = this.$refs.progressBar
-          progress.forEach(el => {
-            el.style.width = el.getAttribute('aria-valuenow') + '%';
-          });
-        }
-      });
+    // This tells eslint to assume that there is a global window.Waypoint
+    /* global Waypoint */
+    let item = this.$refs.skillsAnimation
+    let progress = this.$refs.progressBar
+
+    new Waypoint({
+      element: item,
+      offset: '80%',
+      handler: function(/*direction*/) {
+        progress.forEach(el => {
+          el.style.width = el.getAttribute('aria-valuenow') + '%';
+        });
+      }
     });
   }
 }
